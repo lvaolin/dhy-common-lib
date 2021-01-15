@@ -21,7 +21,7 @@ public class MyThreadPoolConfig {
     /**
      * 请求排队的队列容量
      */
-    private Integer queueCapacity=10000;
+    private Integer queueCapacity=1000;
     /**
      * 空闲线程存活时间(单位是 秒)
      */

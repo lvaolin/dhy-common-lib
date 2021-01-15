@@ -37,7 +37,17 @@ public class MyDefaultExecutorServiceHandler implements MyExecutorServiceHandler
             keepAliveTime = threadPoolConfig.getKeepAliveTime();
         }
 
-        BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(queueCapacity);
+        BlockingQueue<Runnable> workQueue = null;
+        if (queueCapacity==0) {
+            workQueue = new SynchronousQueue<>();//同步队列
+        }
+        if (queueCapacity>0) {
+            workQueue = new LinkedBlockingQueue<>(queueCapacity);//有界队列
+        }
+        if (queueCapacity<0) {
+            workQueue = new LinkedBlockingQueue<>();//无界队列，可能将所有内存占满
+        }
+
         ThreadFactory threadFactory = new MyDefaultThreadFactory(taskPoolKey);
         RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
 

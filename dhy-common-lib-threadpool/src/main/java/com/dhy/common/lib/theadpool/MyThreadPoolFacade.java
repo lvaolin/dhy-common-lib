@@ -16,10 +16,10 @@ public class MyThreadPoolFacade {
     */
     public static ExecutorService getExecutorService(MyThreadPoolConfig threadPoolConfig){
         if (threadPoolConfig.getThreadName().equalsIgnoreCase("shared")) {
-            throw new IllegalArgumentException("请为你的线程池起一个响亮的好听的名字！！！");
+            throw new IllegalArgumentException("请为你的线程池起一个响亮的好听的名字！！！名称'shared'已经被系统占用，请更换其它名字");
         }
         if (threadPoolConfig.getCorePoolSize()!=threadPoolConfig.getMaxPoolSize()) {
-            threadPoolConfig.setQueueCapacity(1);
+            threadPoolConfig.setQueueCapacity(0);
         }
         if (threadPoolConfig.getCorePoolSize()>threadPoolConfig.getMaxPoolSize()) {
             threadPoolConfig.setMaxPoolSize(threadPoolConfig.getCorePoolSize());
@@ -35,7 +35,7 @@ public class MyThreadPoolFacade {
         MyThreadPoolConfig myThreadPoolConfig = new MyThreadPoolConfig();
         myThreadPoolConfig.setCorePoolSize(20);
         myThreadPoolConfig.setMaxPoolSize(300);
-        myThreadPoolConfig.setQueueCapacity(1);
+        myThreadPoolConfig.setQueueCapacity(0);
         return MyThreadPoolManager.getExecutorService(myThreadPoolConfig);
     }
 }
