@@ -8,8 +8,8 @@
  * 2、线程复用时（向线程池提交任务）ThreadLocal数据传递问题
  
  * 用法：
- * 1) 使用 TaskProxy 类对 Runnable、Callable接口进行一个修饰代理即可
- *   Runnable runnable = (Runnable)new TaskProxy(new Runnable() {
+    使用 TaskProxy 类对 Runnable、Callable接口进行一个修饰代理即可
+    Runnable runnable = (Runnable)new TaskProxy(new Runnable() {
                   @Override
                   public void run() {
                       System.out.println("使用代理Runnable："+ ThreadLocalHolder.getUserId());
@@ -17,7 +17,7 @@
                   }
               },ThreadLocalHolder.class);
     
- *   Callable callable = (Callable) new DhyTaskProxy<String>(new Callable() {
+    Callable callable = (Callable) new DhyTaskProxy<String>(new Callable() {
                 @Override
                 public String call() throws Exception {
                     System.out.println("使用代理Callable："+ ThreadLocalHolder.getUserId());
