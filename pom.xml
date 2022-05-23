@@ -8,6 +8,7 @@
     <modules>
         <module>dhy-common-lib-threadpool</module>
         <module>dhy-common-lib-peakcut</module>
+        <module>dhy-common-lib-taskproxy</module>
     </modules>
 
     <properties>
