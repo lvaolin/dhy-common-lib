@@ -8,8 +8,8 @@
  * 2、线程复用时（向线程池提交任务）ThreadLocal数据传递问题
  **/
 
-## 用法：
-    使用 TaskProxy 类对 Runnable、Callable接口进行一个修饰代理即可
+## 用法：使用 TaskProxy 类对 Runnable、Callable接口进行一个修饰代理即可
+    
     Runnable runnable = (Runnable)new TaskProxy(new Runnable() {
                   @Override
                   public void run() {
@@ -27,4 +27,4 @@
                 }
              }, ThreadLocalHolder.class);
              
-    就是这样，简单明了。
+
