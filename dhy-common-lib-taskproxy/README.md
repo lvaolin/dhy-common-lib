@@ -17,7 +17,7 @@
                   }
               },ThreadLocalHolder.class);
     
-    Callable callable = (Callable) new DhyTaskProxy<String>(new Callable() {
+ *   Callable callable = (Callable) new DhyTaskProxy<String>(new Callable() {
                 @Override
                 public String call() throws Exception {
                     System.out.println("使用代理Callable："+ ThreadLocalHolder.getUserId());
@@ -26,7 +26,7 @@
                 }
              }, ThreadLocalHolder.class);
              
-     就是这样，简单明了。
+ *    就是这样，简单明了。
  **/
 
 
