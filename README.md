@@ -6,3 +6,6 @@
 
 # dhy-common-lib-peakcut
 易用的异步任务执行、存储、查询组件
+
+# dhy-common-lib-taskproxy
+解决线程切换、线程池复用线程等情况下ThreadLocal数据丢失问题
